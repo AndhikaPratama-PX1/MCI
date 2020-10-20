@@ -1,0 +1,132 @@
+/*
+ * App Global Responsive CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+ @media (min-width: 400px) {
+	p.info_date_job {
+	    font-size: 10px;
+	    width: 71px;
+	    right: 15px;
+	}
+}
+ @media (min-width: 456px) {
+	.mci-footer-bar ion-icon {
+    	font-size: 26px;
+	}
+	.mci-footer-bar p {
+	    font-size: 11px;
+	    position: relative;
+	}
+}
+ @media (min-width: 576px) {
+	.div_mci_img_job {
+	    width: 21vw;
+	    height: 21vw;
+	}
+}
+@media (min-width: 768px) {
+	.div_mci_img_job {
+	    width: 13vw;
+	    height: 13vw;
+	}
+}
+
+@media (max-width: 431px) {
+  .list_tab_job ion-tab-button {
+    font-size: 11px;
+  }
+}
+@media (max-width: 403px) {
+  .list_tab_job ion-tab-button {
+      font-size: 10px;
+  }
+}
+@media (max-width: 377px) {
+  #mci-logo {
+  	margin-bottom: 25px !important;
+    width: 80%;
+    height: auto;
+  }
+  .list_tab_job ion-tab-button {
+      font-size: 9px;
+  }
+}
+@media (max-width: 370px) {
+  p.mci_address {
+      margin: unset;
+      font-size: 11px;
+  }
+  p.mci_name_company {
+    font-size: 10px;
+  }
+  p.mci_name_job {
+    font-size: 13px;
+  }
+
+}
+@media (max-width: 347px) {
+  .list_tab_job ion-tab-button {
+      font-size: 7px;
+  }
+  .div_well_notif_oa {
+    padding: 3px 14px;
+    font-size: 12px;
+  }
+
+}
+@media (max-width: 298px) {
+	.notif_not_exist {
+	    font-size: 16px;
+    }
+	.mci-footer-bar ion-icon {
+	    font-size: 15px;
+	}
+  .mci-footer-bar p {
+    font-size: 7px;
+  }
+  p.range_salary {
+    font-size: 9px;
+   }
+  p.mci_address {
+    font-size: 11px;
+	}
+  p.mci_name_company {
+    font-size: 9px;
+    margin-bottom: 12px;
+  }
+  p.mci_name_job {
+    font-size: 13px;
+  }
+}
+@media (max-width: 264px) {
+  p.range_salary {
+    font-size: 8px;
+   }
+  p.mci_address {
+    font-size: 10px;
+	}
+  p.mci_name_company {
+    font-size: 8px;
+    margin-bottom: 11px;
+  }
+  p.mci_name_job {
+    font-size: 12px;
+  }
+}
+@media (max-width: 264px) {
+	.notif_not_exist {
+	    font-size: 14px;
+	}
+	.mci-footer-bar ion-icon {
+	    font-size: 12px;
+	}
+  .mci-footer-bar p {
+    font-size: 6px;
+  }
+}

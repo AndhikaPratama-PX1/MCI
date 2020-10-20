@@ -1,0 +1,200 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" class="mci_icon_back" (click)="goBack();"></ion-icon>
+    <ion-icon name="home" class="mci_icon_back mci_icon_home" onclick="location.href='/homehome'"></ion-icon>
+
+  </ion-toolbar>
+</ion-header>
+<ion-content class="mci_no_scroll">
+  <div class="title_header_content">
+  	<p style="margin: unset;">Sign Up</p>
+<!--     <div style="    display: flex;">
+    	<p style="margin: unset;">As</p>
+      <ion-item class="ion-no-padding select_type_user" style="margin-bottom: 15px;">
+        <ion-select  #type_user [(ngModel)]="type_user_input" value="type_user_id"  okText="OK" cancelText="Close" placeholder="Type User........" required>
+          <ion-select-option value="1">Employeer</ion-select-option>
+          <ion-select-option value="2">Candidate</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+  	<hr style="    margin-top: -16px;" /> -->
+    <hr style="    margin-top: 10px;" />
+  </div>
+  <div class="mci_signup_form">
+    <div class="border_input_mci" *ngIf="pagenumber==3">
+      <p style="text-align: center;"> <strong>Job that you are interested in?</strong></p>
+      <ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+        <ion-icon name="thumbs-up" style="position: absolute;color: #de3535;"></ion-icon>
+        <ion-select #interestjob  multiple={true} class="placeholderwhite" [(ngModel)]="interestjob_input" style="padding-left: 30px !important;" placeholder="interestjob_input"   okText="OK" cancelText="Close" required>
+          <ion-select-option value="All">All</ion-select-option>
+          <ion-select-option value="Engineering">Engineering</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+    <div class="border_input_mci" *ngIf="pagenumber==2">
+      <p style="text-align: center;"> <strong>How do you know us?</strong></p>
+      <ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+        <ion-icon name="planet" style="position: absolute;color: #de3535;"></ion-icon>
+        <ion-select #howknowus  class="placeholderwhite" [(ngModel)]="howknowus_input" style="padding-left: 30px !important;" placeholder="howknowus_input"   okText="OK" cancelText="Close" required>
+          <ion-select-option value="Facebook">Facebook</ion-select-option>
+          <ion-select-option value="Advertisement Campaign">Advertisement Campaign</ion-select-option>
+          <ion-select-option value="Friends">Friends</ion-select-option>
+          <ion-select-option value="MCI Consultant">MCI Consultant</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="ion-no-padding" style="margin-bottom: 15px;" *ngIf="howknowus_input=='Friends'">
+        <ion-icon name="person-circle-outline" style="position: absolute;color: #de3535;"></ion-icon>
+        <ion-input  #namefriends [(ngModel)]="namefriends_input" style="padding-left: 30px !important;" placeholder="Name" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-no-padding" style="margin-bottom: 15px;" *ngIf="howknowus_input=='MCI Consultant'">
+        <ion-icon name="person-circle-outline" style="position: absolute;color: #de3535;"></ion-icon>
+        <ion-select #nameconsultan   [(ngModel)]="nameconsultan_input" style="padding-left: 30px !important;" placeholder="Name"   okText="OK" cancelText="Close" required>
+          <ion-select-option value="Facebook">Jyance</ion-select-option>
+          <ion-select-option value="Advertisement Campaign">Mayra</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+    </div>
+    <div class="border_input_mci" *ngIf="pagenumber==1">
+    	<ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+        <ion-icon name="person-circle-outline" style="position: absolute;color: #de3535;"></ion-icon>
+    		<ion-input  #fullname [(ngModel)]="fullname_input" style="padding-left: 30px !important;" placeholder="Name" type="text" required></ion-input>
+    	</ion-item>
+
+      <ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+        <ion-icon name="mail-outline" style="position: absolute;color: #de3535;"></ion-icon>
+        <ion-input  #email [(ngModel)]="email_input" style="padding-left: 30px !important;" placeholder="Email" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+        <ion-icon name="pin" style="position: absolute;color: #de3535;"></ion-icon>
+        <ion-select  #nationality [(ngModel)]="nationality_input" style="padding-left: 30px !important;"   okText="OK" cancelText="Close" placeholder="Nationality" required>
+          <ion-select-option [value]="country.name" *ngFor="let country of list_country;">{{country.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+        <ion-icon name="call" style="position: absolute;color: #de3535;"></ion-icon>
+        <ion-input #phone [(ngModel)]="phone_input" style="padding-left: 30px !important;" placeholder="Contact Number" type="number" required></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+        <ion-icon name="mic-outline" style="position: absolute;color: #de3535;"></ion-icon>
+        <ion-select  #language [(ngModel)]="language_input" style="padding-left: 30px !important;"   okText="OK" cancelText="Close" placeholder="Preferred Language" required>
+          <ion-select-option [value]="lang.name" *ngFor="let lang of list_language;">{{lang.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      
+<!--       <div class="mci_tooltip_div" *ngIf="tooltip_recom">
+        <p class="mci_tooltip" >Recommanded By<br>(N.A / Friend Name / MCI Agent Code)</p>
+      </div>
+      <ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+        <ion-icon name="people-circle-outline" style="position: absolute;color: #de3535;"></ion-icon>
+        <ion-input [(ngModel)]="recom_input" style="padding-left: 30px !important;" placeholder="Recommanded By" type="text" (ionFocus)="checkFocusrecom_input()"  (ionBlur)="uncheckFocusrecom_input()"></ion-input>
+      </ion-item> -->
+
+
+    	<ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+        <ion-icon name="lock-closed-outline" style="position: absolute;color: #de3535;"></ion-icon>
+    		<ion-input #password [(ngModel)]="password_input" style="padding-left: 30px !important;" [type]="password_type" placeholder="Password" type="password" required></ion-input>
+    		 <ion-icon [name]="visible ? 'eye-outline' :'eye-off'" (click)="showpassword(); " style="color: #de3535;"></ion-icon>
+    	</ion-item>
+    	<ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+        <ion-icon name="lock-closed-outline" style="position: absolute;color: #de3535;"></ion-icon>
+    		<ion-input #confirm_password [(ngModel)]="confirm_password_input" style="padding-left: 30px !important;" [type]="password_type1" placeholder="Confirm Password" type="password" required></ion-input>
+    		 <ion-icon [name]="visible1 ? 'eye-outline' :'eye-off'" (click)="showpassword1(); "  style="color: #de3535;"></ion-icon>
+    	</ion-item>
+    </div>
+    <ion-button  *ngIf="pagenumber==1 || pagenumber==2" size="large" class="mci_button_standar" (click)="onsubmit(); "><ion-icon name="arrow-forward-circle-outline"></ion-icon>
+   &#160; Next </ion-button>
+   <ion-button  *ngIf="pagenumber==2" size="large" class="mci_button_standar" (click)="backsubmit(); " style="    margin-top: -20px;"><ion-icon name="arrow-back-circle-outline"></ion-icon>
+   &#160; Back </ion-button>
+    <ion-button  *ngIf="pagenumber==3" size="large" class="mci_button_standar" (click)="process_submit(); "><ion-icon name="add-circle-outline"></ion-icon>
+   &#160; Sign Up </ion-button>
+
+
+  </div>
+   <div class="div_share_fixed" (click)="sharewa();">
+          <ion-icon name="share-social-outline" (click)="sharewa();"></ion-icon>
+        </div>
+</ion-content>
+
+<ion-footer class="ion-no-border" style="background: white;">
+  <!-- <p class="mci_name_page">Sign Up</p> -->
+<!--   <div class="icon_next_circle">
+     <ion-icon name="arrow-forward" onclick="location.href='/done-signup'"></ion-icon>
+  </div>
+  <div class="box_footer">
+ -->  	<!-- <a href="/login">Sign In</a> -->
+  <!-- </div> -->
+  <div class="mci-footer-bar">
+      <ion-row align-items-center>
+
+        <ion-col class="ion-no-padding col-3 text-center">
+            <button ion-button icon-only onclick="location.href='/homehome'">
+                <ion-icon name="home"></ion-icon><br/>
+                <p style="margin:0px;">Home</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/list-job'">
+                 <ion-icon name="briefcase"></ion-icon><br/>
+                <p style="margin:0px;">Jobs</p>
+            </button>
+        </ion-col>
+
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/login'">
+                <ion-icon name="person"></ion-icon><br/>
+                <p style="margin:0px;">Sign In</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/signup'" class="active">
+                 <ion-icon name="person-add"></ion-icon><br/>
+                <p style="margin:0px;">Sign Up</p>
+            </button>
+        </ion-col>
+
+        <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='employee'">
+            <button ion-button icon-only onclick="location.href='/list-candidate'">
+                 <ion-icon name="people"></ion-icon><br/>
+                <p style="margin:0px;">Candidate</p>
+            </button>
+        </ion-col>
+         <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+
+         <!-- /////////////CANDIDATE////////////////////// -->
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="openchat();">
+                 <ion-icon name="chatbubble-outline"></ion-icon>
+                <p style="margin:0px;">Chats</p>
+            </button>
+        </ion-col>
+         <!-- /////////////CANDIDATE////////////////////// -->
+
+
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/my-account'">
+                 <ion-icon name="person"></ion-icon><br/>
+                <p style="margin:0px;">My Account</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="logout(); ">
+                  <ion-icon name="log-out"></ion-icon><br/>
+                <p style="margin:0px;">Log Out</p>
+            </button>
+        </ion-col>
+    </ion-row>
+    <div>
+      <hr/>
+    </div>
+  </div>
+</ion-footer>

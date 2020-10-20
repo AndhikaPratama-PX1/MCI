@@ -1,0 +1,138 @@
+<ion-header color="red">
+  <ion-toolbar style="--background: #de3535;">
+    <ion-title class="mci_title">List Candidate</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="mci_no_scroll">
+	<div class="main_content">
+		<p class="mci_p_content_title">2 Candidate</p>
+		<ion-row>
+          <ion-col class="col-6 text-center" size="6">
+			<ion-button  shape="round" size="small" class="icon_create" *ngIf="type_login=='employee'"> <ion-icon name="create"></ion-icon> Create</ion-button>
+		  </ion-col>
+		  <ion-col class="col-6 text-center" size="6">
+			<ion-button   shape="round" size="small" class="icon_search" *ngIf="type_login=='employee'"> <ion-icon name="search"></ion-icon> Search</ion-button>
+		  </ion-col>
+		</ion-row>
+
+		<div class="mci_candidate_list" >
+			<div class="mci_content_candidate">
+				<ion-row>
+		          <ion-col class="col-3 text-center" size="4" size-sm="3" size-md="2" size-lg="2">
+		            <div class="div_mci_img_job mci_mt_7px">
+		              <img src="/assets/img/candidate.jpg" class="mci_img_job" />
+		            </div>
+		          </ion-col>
+		          <ion-col class="col-7" size="6" size-sm="7" size-md="8" size-lg="8">
+		            <p class="mci_name_candidate">Andhika</p>
+		            <p class="mci_email_candidate">andh@gmail.com</p>
+		            <div class="badge_user paid_user">
+		            	<ion-icon name="ribbon"></ion-icon> Paid User 
+		            </div>	
+		          </ion-col>
+		          <ion-col class="col-2" size="2" size-sm="2" size-md="2" size-lg="2">
+		            <ion-button  shape="round" size="small" class="icon_delete"> <ion-icon name="trash"></ion-icon></ion-button>
+		            <!-- <ion-icon name="bookmark" class="bookmark"></ion-icon> -->
+		            <!-- <p class="info_date_job">10 Minutes Ago</p> -->
+		          </ion-col>
+		        </ion-row>
+			</div>
+
+			<div class="mci_content_candidate">
+				<ion-row>
+		          <ion-col class="col-3 text-center" size="4" size-sm="3" size-md="2" size-lg="2">
+		            <div class="div_mci_img_job mci_mt_7px">
+		              <img src="/assets/img/candidate.jpg" class="mci_img_job" />
+		            </div>
+		          </ion-col>
+		          <ion-col class="col-7" size="6" size-sm="7" size-md="8" size-lg="8">
+		            <p class="mci_name_candidate">Pratama</p>
+		            <p class="mci_email_candidate">pa@gmail.com</p>
+		            <div class="badge_user free_user">
+		            	<ion-icon name="star"></ion-icon> Free User
+		            </div>
+
+		          </ion-col>
+		          <ion-col class="col-2" size="2" size-sm="2" size-md="2" size-lg="2">
+		            <ion-button  shape="round" size="small" class="icon_delete"> <ion-icon name="trash"></ion-icon></ion-button>
+		            <!-- <ion-icon name="bookmark" class="bookmark"></ion-icon> -->
+		            <!-- <p class="info_date_job">10 Minutes Ago</p> -->
+		          </ion-col>
+		        </ion-row>
+			</div>
+
+		</div>
+	</div>
+
+</ion-content>
+
+
+<ion-footer-bar class="ion-no-border mci-footer-bar">
+    <ion-row align-items-center>
+
+        <ion-col class="ion-no-padding col-3 text-center">
+            <button ion-button icon-only onclick="location.href='/homehome'">
+                <ion-icon name="home"></ion-icon>
+                <p style="margin:0px;">Home</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/list-job'">
+                 <ion-icon name="briefcase"></ion-icon>
+                <p style="margin:0px;">Jobs</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/login'">
+                <ion-icon name="person"></ion-icon>
+                <p style="margin:0px;">Sign In</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/signup'">
+                 <ion-icon name="person-add"></ion-icon>
+                <p style="margin:0px;">Sign Up</p>
+            </button>
+        </ion-col>
+
+        <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='employee'">
+            <button ion-button icon-only onclick="location.href='/list-candidate'" class="active">
+                 <ion-icon name="people"></ion-icon>
+                <p style="margin:0px;">Candidate</p>
+            </button>
+        </ion-col>
+         <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+
+         <!-- /////////////CANDIDATE////////////////////// -->
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='candidate'">
+            <button ion-button icon-only onclick="location.href='/find-job'">
+                <ion-icon name="search"></ion-icon>
+                <p style="margin:0px;">Search</p>
+            </button>
+        </ion-col>
+         <!-- /////////////CANDIDATE////////////////////// -->
+
+
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/my-account'">
+                 <ion-icon name="person"></ion-icon>
+               <p style="margin:0px;">My Account</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="logout(); ">
+                  <ion-icon name="log-out"></ion-icon>
+                <p style="margin:0px;">Log Out</p>
+            </button>
+        </ion-col>
+    </ion-row>
+    <div>
+    	<hr/>
+    </div>
+</ion-footer-bar>

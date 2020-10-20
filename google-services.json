@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "552601391754",
+    "firebase_url": "https://mciproject.firebaseio.com",
+    "project_id": "mciproject",
+    "storage_bucket": "mciproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:552601391754:android:eac215c83853e9e3495373",
+        "android_client_info": {
+          "package_name": "om.mci.apps.mci"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "552601391754-vr0dggfg217pr2f0tmv78bpnseh6tj7o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz-kO0geee0-8M1N2iX6C-BGvdWbyYHtI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "552601391754-vr0dggfg217pr2f0tmv78bpnseh6tj7o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,132 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar >
+    <div class="mci-toolbar-with-string"> 
+      <ion-icon name="chevron-back-outline" class="mci_icon_back" (click)="goBack();"></ion-icon>
+      <p (click)="goBack();">Back</p>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="mci_make_payment mci_no_scroll" >
+	<div class="parent_form">
+		<ion-icon name="logo-usd" class="ico_usd"></ion-icon>
+		<div class="form_input_account">
+			<div class="ionitemcustom" style="text-align: left;">
+		    	<ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Total Amount</ion-label>
+		    	<div class="input">
+		    		<ion-input type="text" value="$500.00" readonly="1"></ion-input>
+		    	</div>
+		    </div>
+		    <div class="ionitemcustom select_img select_payment" style="text-align: left;">
+		    	<ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Payment Method</ion-label>
+		    	<div class="input">
+		    		<ion-select value="payment_method_id"  okText="OK" cancelText="Close">
+				        <ion-select-option value="1" >Paypal</ion-select-option>
+                <ion-select-option value="2" >Bank Transfer</ion-select-option>
+				      </ion-select>
+		    	</div>
+		    </div>
+
+            <div class="ionitemcustom select_img select_payment" style="text-align: left;">
+                <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Receipt Payment</ion-label>
+                <div class="attachment_item ionitemcustom" style="text-align: left;    padding: unset !important;margin: unset;">
+                    <ion-input type="file" id="payment_file_input" style="position: absolute;height: 68px;opacity: 0;" (change)="checkfile($event);" [(ngModel)]="payment_file_input"></ion-input>
+                    <div>
+                        <ion-icon name="cloud-upload"></ion-icon>
+                        <p style="margin-left:10px;font-family: Manrope-Extrabold;"> {{name_file}}</p>
+                    </div>
+                </div>
+            </div>
+
+		</div>
+	</div>
+	<ion-row align-items-center class="mci_button_account">
+		<ion-col class="ion-no-padding col-6 text-center">
+			<button class="mci_update_account_button" (click)="make_payment(); ">
+               <ion-icon name="wallet-outline" style="font-size: 25px;"> </ion-icon>&#160;&#160;
+               <span style="position: relative;top: -7px;">Confirm</span>
+            </button>
+		</ion-col>
+	</ion-row>
+
+<div class="div_share_fixed" (click)="sharewa();">
+          <ion-icon name="share-social-outline" (click)="sharewa();"></ion-icon>
+        </div>
+        
+</ion-content>
+
+<ion-footer-bar class="ion-no-border mci-footer-bar">
+    <ion-row align-items-center>
+
+        <ion-col class="ion-no-padding col-3 text-center">
+            <button ion-button icon-only onclick="location.href='/homehome'">
+                <ion-icon name="home"></ion-icon>
+                <p style="margin:0px;">Home</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/list-job;state=job_listing'">
+                 <ion-icon name="briefcase"></ion-icon>
+                <p style="margin:0px;">Jobs</p>
+            </button>
+        </ion-col>
+
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/login'">
+                <ion-icon name="person"></ion-icon>
+               <p style="margin:0px;">Sign In</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/signup'">
+                 <ion-icon name="person-add"></ion-icon>
+                <p style="margin:0px;">Sign Up</p>
+            </button>
+        </ion-col>
+
+        <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='employee'">
+            <button ion-button icon-only onclick="location.href='/list-candidate'">
+                 <ion-icon name="people"></ion-icon>
+                <p style="margin:0px;">Candidate</p>
+            </button>
+        </ion-col>
+         <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+
+         <!-- /////////////CANDIDATE////////////////////// -->
+<!--         <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='candidate'">
+            <button ion-button icon-only onclick="location.href='/list-job;state=job_applied'">
+                <ion-icon name="briefcase"></ion-icon>
+                <p style="margin:0px;">My Jobs</p>
+            </button>
+        </ion-col> -->
+         <!-- /////////////CANDIDATE////////////////////// -->
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="openchat();">
+                 <ion-icon name="chatbubble-outline"></ion-icon>
+                <p style="margin:0px;">Chats</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/my-account'">
+                 <ion-icon name="person"></ion-icon>
+                <p style="margin:0px;">My Account</p>
+            </button>
+        </ion-col>
+
+
+<!--         <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="logout(); ">
+                  <ion-icon name="log-out"></ion-icon>
+                <p style="margin:0px;">Log Out</p>
+            </button>
+        </ion-col> -->
+    </ion-row>
+    <div>
+        <hr/>
+    </div>
+</ion-footer-bar>

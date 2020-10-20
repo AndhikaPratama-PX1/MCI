@@ -1,0 +1,186 @@
+<!-- <ion-header color="red">
+  <ion-toolbar style="--background: #de3535;">
+    <ion-tabs class="list_tab_job">
+  	<ion-tab-bar>
+	    <ion-tab-button  [ngClass]="state=='job_listing' ? 'active' : ''">
+	      Job Listing ({{count_job}})
+	    </ion-tab-button>
+	    <ion-tab-button [ngClass]="state=='job_applied' ? 'active' : ''" *ngIf="type_login">
+	      Jobs Applied 
+	    </ion-tab-button>
+	    <ion-tab-button *ngIf="type_login">
+	      Interview
+	    </ion-tab-button>
+	    <ion-tab-button *ngIf="type_login">
+	      Saved Job
+	    </ion-tab-button>
+	</ion-tab-bar>
+   </ion-tabs>
+  </ion-toolbar>
+
+</ion-header> -->
+<ion-header-bar class="ion-no-border mci-header-bar list_tab_job">
+    <ion-row align-items-center>
+        <ion-col class="ion-no-padding col-3 text-center">
+            <button ion-button icon-only (click)="changestate('job_listing');"  [ngClass]="state=='job_listing' ? 'active' : ''">
+                <ion-icon  name="clipboard"></ion-icon>
+                <p style="margin:0px;">Job Listing ({{count_job1}})</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="changestate('saved_job');"  [ngClass]="state=='saved_job' ? 'active' : ''">
+                <ion-icon name="bookmarks"></ion-icon>
+                <p style="margin:0px;">Saved Job ({{count_job4}})</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="changestate('job_applied');"  [ngClass]="state=='job_applied' ? 'active' : ''">
+                <ion-icon  name="archive"></ion-icon>
+                <p style="margin:0px;">Jobs Applied ({{count_job2}})</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="changestate('interview');"  [ngClass]="state=='interview' ? 'active' : ''">
+                <ion-icon  name="calendar"></ion-icon>
+                <p style="margin:0px;">Interview ({{count_job3}})</p>
+            </button>
+        </ion-col>
+    </ion-row>
+</ion-header-bar>
+
+
+<ion-content class="mci_no_scroll">
+	<div class="main_content">
+        <div class="div_well_notif_oa" *ngIf="!count_job" style="text-align: center;margin-top: 58px;">
+          <p> Not Available</p>
+        </div>
+		<p class="mci_p_content_title" *ngIf="count_job">{{count_job}} Jobs</p>
+<!-- 		<ion-button onclick="location.href='/find-job'"  shape="round" size="small" class="icon_search" > <ion-icon name="search"></ion-icon> Search</ion-button> -->
+<!-- 		<ion-row *ngIf="type_login=='employee'">
+          <ion-col class="col-6 text-center" size="6">
+			<ion-button  shape="round" size="small" class="icon_create" > <ion-icon name="create"></ion-icon> Create</ion-button>
+		  </ion-col>
+		  <ion-col class="col-6 text-center" size="6" >
+			<ion-button onclick="location.href='/find-job'"  shape="round" size="small" class="icon_search"> <ion-icon name="search"></ion-icon> Search</ion-button>
+		  </ion-col>
+		</ion-row> -->
+		<div class="mci_job_list" *ngIf="count_job">
+			<div class="mci_content_job"  *ngFor="let job of list_job;">
+		        <ion-row>
+		          <ion-col class="col-2 text-center job_list_icon" size="1" size-sm="1" size-md="1" size-lg="1">
+		          </ion-col>
+		          <ion-col class="col-8" size="9" size-sm="9" size-md="9" size-lg="9" (click)="detail_form(job.id)">
+		            <p class="mci_name_job">{{job.position}}</p>
+                	<p class="mci_name_company">{{job.company_name}}</p>
+		            <div *ngIf="!free_user">
+			            <p class="mci_address mci_mt_7px font_extrabold">Requirements :</p> 
+			            <p class="mci_address" *ngIf="job.qualification">Qualification : {{job.qualification}}</p> 
+			            <p class="mci_address" *ngIf="job.years_of_experience">Years of Experience : {{job.years_of_experience}}</p> 
+			            <p class="mci_address" *ngIf="job.type_of_skill">Type Of Skills : {{job.type_of_skill}}</p> 
+			            <p class="mci_address" *ngIf="job.driving_licence">Driving Licence : {{job.driving_licence}}</p> 
+			        </div>
+			        <p class="mci_address mci_mt_7px font_extrabold">Locations :</p> 
+			        <p class="mci_address">{{job.work_location}}</p> 
+              <p class="mci_address">{{job.nationality}}</p> 
+			        <p class="range_salary mci_mt_12px" *ngIf="!free_user">${{job.gross_salary_from}} - ${{job.gross_salary_to}}</p>
+			        <div *ngIf="free_user" class="free_user_lock">
+	                  <p>You need to activate as Member to apply this Job.</p>
+	                </div>
+		          </ion-col>
+		          <ion-col class="col-2" size="2" size-sm="2" size-md="2" size-lg="2">
+		            <ion-icon class="bookmark" [name]="job.saved ? 'bookmark' :'bookmark-outline'" *ngIf="type_login=='candidate'" (click)="saved_job(job)"></ion-icon>
+		            <ion-button  shape="round" size="small" class="icon_delete" *ngIf="type_login=='employee'"> <ion-icon name="trash"></ion-icon></ion-button>
+		            <!-- <ion-icon name="bookmark" class="bookmark"></ion-icon> -->
+		            <p class="info_date_job">10 Minutes Ago</p>
+		          </ion-col>
+		        </ion-row>
+		      </div>
+
+			
+
+
+		</div>
+	</div>
+  <div class="div_search_fixed" onclick="location.href='/find-job'">
+          <ion-icon name="search"></ion-icon>
+        </div>
+        <div class="div_share_fixed" (click)="sharewa();">
+          <ion-icon name="share-social-outline" (click)="sharewa();"></ion-icon>
+        </div>
+</ion-content>
+
+<ion-footer-bar class="ion-no-border mci-footer-bar">
+    <ion-row align-items-center>
+
+        <ion-col class="ion-no-padding col-3 text-center">
+            <button ion-button icon-only onclick="location.href='/homehome'">
+                <ion-icon name="home"></ion-icon>
+                <p style="margin:0px;">Home</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/list-job;state=job_listing'" class="active">
+                 <ion-icon name="briefcase"></ion-icon>
+                <p style="margin:0px;">Jobs</p>
+            </button>
+        </ion-col>
+
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/login'">
+                <ion-icon name="person"></ion-icon>
+               <p style="margin:0px;">Sign In</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/signup'">
+                 <ion-icon name="person-add"></ion-icon>
+                <p style="margin:0px;">Sign Up</p>
+            </button>
+        </ion-col>
+
+        <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='employee'">
+            <button ion-button icon-only onclick="location.href='/list-candidate'">
+                 <ion-icon name="people"></ion-icon>
+                <p style="margin:0px;">Candidate</p>
+            </button>
+        </ion-col>
+         <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+
+         <!-- /////////////CANDIDATE////////////////////// -->
+<!--         <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='candidate'">
+            <button ion-button icon-only onclick="location.href='/list-job;state=job_applied'" [ngClass]="state=='job_applied' ? 'active' : ''">
+                <ion-icon name="briefcase"></ion-icon>
+                <p style="margin:0px;">My Jobs</p>
+            </button>
+        </ion-col> -->
+         <!-- /////////////CANDIDATE////////////////////// -->
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="openchat();">
+                 <ion-icon name="chatbubble-outline"></ion-icon>
+                <p style="margin:0px;">Chats</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/my-account'">
+                 <ion-icon name="person"></ion-icon>
+                <p style="margin:0px;">My Account</p>
+            </button>
+        </ion-col>
+
+
+<!--         <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="logout(); ">
+                  <ion-icon name="log-out"></ion-icon>
+                <p style="margin:0px;">Log Out</p>
+            </button>
+        </ion-col> -->
+    </ion-row>
+    <div>
+        <hr/>
+    </div>
+</ion-footer-bar>

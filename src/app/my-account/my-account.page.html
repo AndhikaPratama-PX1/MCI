@@ -1,0 +1,302 @@
+<ion-header color="red">
+  <ion-toolbar style="--background: #de3535;">
+    <ion-title class="mci_title">MY Account</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="mci_account mci_no_scroll" >
+	<div class="parent_form">
+		 <ion-icon name="person" class="ico_person"></ion-icon>
+		 <div class="badge_user paid_user" *ngIf="! free_user">
+        	<ion-icon name="ribbon"></ion-icon> Paid User 
+        </div>	
+        <div class="badge_user free_user" *ngIf="free_user">
+        	<ion-icon name="star"></ion-icon> Free User
+        </div>
+        <p  style="font-size: 10px;margin-bottom: unset;margin-top: -6px;padding: 0 10px;color: #de3535;font-family: Manrope-Extrabold;font-style: italic;">*  Paid user is free for the app initial release</p>
+		<div class="form_input_account form_input_account_candidate" *ngIf="type_login=='candidate'">
+			<div class="ionitemcustom" style="text-align: left;">
+		    	<ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Name</ion-label>
+		    	<div class="input">
+		    		<ion-input type="text" [(ngModel)]="fullname_input" [readonly]="free_user" required></ion-input>
+		    	</div>
+		    </div>
+            <div class="ionitemcustom" style="text-align: left;">
+                <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Contact</ion-label>
+                <div class="input">
+                    <ion-input type="text" [(ngModel)]="number_sg_input" [readonly]="free_user" required></ion-input>
+                </div>
+            </div>
+            <div class="ionitemcustom" style="text-align: left;">
+                <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Email</ion-label>
+                <div class="input">
+                    <ion-input type="text" [(ngModel)]="email_input" [readonly]="free_user" required></ion-input>
+                </div>
+            </div>
+
+            <div *ngIf="!free_user">
+
+                <div class="ionitemcustom" style="text-align: left;">
+                    <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Current Location</ion-label>
+                    <div class="input">
+                        <ion-select okText="OK" cancelText="Close" [(ngModel)]="currentlocation_input" required>
+                            <ion-select-option value="Singapore">Singapore</ion-select-option>
+                            <ion-select-option value="Not In Singapore">Not In Singapore</ion-select-option>
+                          </ion-select>
+                    </div>
+                </div>
+            
+                <div class="ionitemcustom" style="text-align: left;" >
+                    <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Type Of Pass</ion-label>
+                    <div class="input">
+                        <ion-select   okText="OK" cancelText="Close" [(ngModel)]="typeofpass" required>
+                            <ion-select-option [value]="tops.name" *ngFor="let tops of list_tops;">{{tops.name}}</ion-select-option>
+                          </ion-select>
+                    </div>
+                </div>
+
+                <div class="ionitemcustom" style="text-align: left;" >
+                    <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Work Permit / FIN</ion-label>
+                    <div class="input">
+                        <ion-select value="country_id"  okText="OK" cancelText="Close" [(ngModel)]="levytype" placeholder="Type NA if not application" required>
+                            <ion-select-option [value]="levytype.name" *ngFor="let levytype of list_levy_type;">{{levytype.name}}</ion-select-option>
+                          </ion-select>
+                    </div>
+                </div>
+
+                <div class="ionitemcustom" style="text-align: left;">
+                    <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Expected Salary</ion-label>
+                    <div class="input">
+                        <ion-input type="number" [(ngModel)]="expected_salary" required></ion-input>
+                    </div>
+                </div>
+
+                <div class="ionitemcustom" style="text-align: left;">
+                    <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Years Of Experience In Singapore</ion-label>
+                    <div class="input">
+                        <ion-select value="country_id"  okText="OK" cancelText="Close" [(ngModel)]="years_of_singapore" required>
+                            <ion-select-option [value]="yos.name" *ngFor="let yos of list_yos;">{{yos.name}}</ion-select-option>
+                          </ion-select>
+                    </div>
+                </div>
+
+                <div class="ionitemcustom" style="text-align: left;" >
+                    <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Type Of Skill</ion-label>
+                    <div class="mci_tooltip_div" *ngIf="tooltip_type_skill">
+                        <p class="mci_tooltip" >Welding, Computer, Class 3, Electrical, Plumbing, Others</p>
+                      </div>
+                    <div class="input">
+                        <ion-input type="text"  [(ngModel)]="typeofskill_input" (ionFocus)="checkFocustypeskill_input()"  (ionBlur)="uncheckFocustypeskill_input()"  required></ion-input>
+                    </div>
+                </div>
+
+
+                <div class="ionitemcustom" style="text-align: left;">
+                    <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Certificates Obtained</ion-label>
+                     <div class="mci_tooltip_div" *ngIf="tooltip_CO">
+                        <p class="mci_tooltip" >BCSS, rigger & signal, microsoft, coretrade, others</p>
+                      </div>
+                    <div class="input">
+                        <ion-input type="text"  [(ngModel)]="cert_input" (ionFocus)="checkFocusCO_input()"  (ionBlur)="uncheckFocusCO_input()" required></ion-input>
+                    </div>
+                </div>
+
+                <p style="font-family: Manrope-Extrabold;font-size: 15px;color: black;margin-top: 18px;"> Covid Information </p>
+
+                <div class="ionitemcustom" style="text-align: left;">
+                    <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Dormitory Location</ion-label>
+                    <div class="input">
+                        <ion-input type="text"  [(ngModel)]="dormlocation_input" required></ion-input>
+                    </div>
+                </div>
+
+                <div class="ionitemcustom" style="text-align: left;">
+                    <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Dormitory Status</ion-label>
+                    <div class="input">
+                        <ion-select  okText="OK" cancelText="Close" [(ngModel)]="dormstatus_input" required>
+                            <ion-select-option value="Clear">Clear</ion-select-option>
+                            <ion-select-option value="Not Clear">Not Clear</ion-select-option>
+                          </ion-select>
+                    </div>
+                </div>
+
+                <div class="ionitemcustom" style="text-align: left;" >
+                    <ion-label style="font-family: Manrope-Extrabold;font-size: 13px;text-align:left;color: black;">Workpermit Status</ion-label>
+                    <div class="input">
+                         <ion-select   okText="OK" cancelText="Close" [(ngModel)]="workpermit_input" required>
+                            <ion-select-option value="Green">Green</ion-select-option>
+                            <ion-select-option value="Red">Red</ion-select-option>
+                          </ion-select>
+                    </div>
+                </div>
+                <p style="font-family: Manrope-Extrabold;font-size: 15px;color: black;margin-top: 18px;"> Resume </p>
+                <div class="upload_img_parent">
+                    <ion-row align-items-center>
+                        <ion-col class="col-6" size="12">
+                            <div class="attachment_item ionitemcustom" style="text-align: left;    padding: unset !important;margin: unset;">
+                                <ion-input type="file" id="resume_file_input" style="position: absolute;height: 68px;opacity: 0;" (change)="checkfileresume($event);" [(ngModel)]="resume_file_input"></ion-input>
+                                <div>
+                                    <ion-icon name="cloud-upload"></ion-icon>
+                                    <p style="margin-left:10px;font-family: Manrope-Extrabold;"> {{name_file_resume}}</p>
+                                </div>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+                <p style="font-family: Manrope-Extrabold;font-size: 15px;color: black;margin-top: 18px;"> Certificate Image </p>
+                <div class="upload_img_parent">
+                    <ion-row align-items-center>
+                        <ion-col class="col-6" size="12" >
+                            <div class="attachment_item ionitemcustom" style="text-align: left;    padding: unset !important;margin: unset;">
+                                <ion-input multiple={true} type="file" id="payment_file_input" style="position: absolute;height: 68px;opacity: 0;"></ion-input>
+                                <div>
+                                    <ion-icon name="cloud-upload"></ion-icon>
+                                    <p style="margin-left:10px;font-family: Manrope-Extrabold;"> Add a image</p>
+                                </div>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-button   shape="round" size="small" class="button_mci" style="font-size: 13px;margin-top: 18px;"> <ion-icon name="cube"> </ion-icon>&#160;&#160;View</ion-button>
+                </div>
+                <div *ngIf="!done_signature">
+                    <p style="font-family: Manrope-Extrabold;font-size: 15px;color: black;">E-Signature </p>
+                        <div class="div_confirm_assign">
+                            <ion-checkbox slot="start" [(ngModel)]="confirm_sign_input" (click)="confirm_sign()"></ion-checkbox>
+                            <p>"I hereby consent MCI Consulting Pte Ltd to use my personal data for employment related purpose"</p>
+                        </div>
+                    <div #act_sign [style.display]="act_sign_display">
+                        <div class="mci_action_sign" >
+                                  <ion-icon name="save-outline" (click)="save()" *ngIf="!isCanvasBlank()" > </ion-icon>
+                                  <ion-icon name="trash-outline" (click)="clear()"> </ion-icon>
+                                </div>
+                        <div style="padding: 0 15px;">
+                            <div class="signature_account" >
+                                <canvas class="signature-pad-canvas" #canvas style="touch-action: none;width: 100%;height: 100%;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+            <p *ngIf="free_user" style="font-size: 10px;margin-bottom: unset;margin-top: 20px;padding: 0 10px;color: #de3535;font-family: Manrope-Extrabold;font-style: italic;">*  Please activate as member to enable key in resume</p>
+		</div>
+
+	</div>
+    <ion-select #downloadoption okText="OK" cancelText="Close" [(ngModel)]="downloadoption_input"  (ionChange)='downloadoption_inputchange()' style="display:none;">
+        <ion-select-option value="1">Own Resume</ion-select-option>
+        <ion-select-option value="2">MCI Resume Format</ion-select-option>
+      </ion-select>
+	<ion-row align-items-center class="mci_button_account">
+		<ion-col class="ion-no-padding col-6 text-center" size="6" *ngIf="!free_user">
+			<button class="mci_update_account_button" (click)="update_account(); ">
+              
+               <span><ion-icon name="create-outline" style="font-size: 25px;"> </ion-icon>&#160;&#160;<span style="position: relative;top: -7px;">Update</span></span>
+            </button>
+		</ion-col>
+        <ion-col class="ion-no-padding col-6 text-center" size="6" *ngIf="!free_user">
+            <button class="mci_update_account_button" (click)="download_resume(); ">
+              
+               <span><ion-icon name="code-download-outline" style="font-size: 25px;"> </ion-icon>&#160;&#160;<span style="position: relative;top: -7px;">Download</span></span>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-6 text-center" size="12" *ngIf="!free_user">
+            <button class="mci_update_account_button" (click)="logout(); " style="margin-top: 20px;">
+               <span><ion-icon name="log-out-outline" style="font-size: 25px;"> </ion-icon>&#160;&#160;<span style="position: relative;top: -7px;">Logout</span></span>
+            </button>
+        </ion-col>
+		<ion-col class="ion-no-padding col-6 text-center" size="6"  *ngIf="free_user">
+			<button class="mci_update_account_button" onclick="location.href='/make-payment'">
+               
+               <span><ion-icon name="wallet-outline" style="font-size: 25px;"> </ion-icon>&#160;&#160;<span style="position: relative;top: -7px;">Confirm Payment</span></span>
+            </button>
+		</ion-col>
+        <ion-col class="ion-no-padding col-6 text-center" size="6" *ngIf="free_user">
+            <button class="mci_update_account_button" (click)="logout(); " >
+               <span><ion-icon name="log-out-outline" style="font-size: 25px;"> </ion-icon>&#160;&#160;<span style="position: relative;top: -7px;">Logout Account</span></span>
+            </button>
+        </ion-col>
+	</ion-row>
+    
+<div class="div_share_fixed" (click)="sharewa();">
+          <ion-icon name="share-social-outline" (click)="sharewa();"></ion-icon>
+        </div>
+    
+</ion-content>
+
+
+<ion-footer-bar class="ion-no-border mci-footer-bar">
+    <ion-row align-items-center>
+
+        <ion-col class="ion-no-padding col-3 text-center">
+            <button ion-button icon-only onclick="location.href='/homehome'">
+                <ion-icon name="home"></ion-icon>
+                <p style="margin:0px;">Home</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/list-job;state=job_listing'">
+                 <ion-icon name="briefcase"></ion-icon>
+                <p style="margin:0px;">Jobs</p>
+            </button>
+        </ion-col>
+
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/login'">
+                <ion-icon name="person"></ion-icon>
+               <p style="margin:0px;">Sign In</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/signup'">
+                 <ion-icon name="person-add"></ion-icon>
+                <p style="margin:0px;">Sign Up</p>
+            </button>
+        </ion-col>
+
+        <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='employee'">
+            <button ion-button icon-only onclick="location.href='/list-candidate'">
+                 <ion-icon name="people"></ion-icon>
+                <p style="margin:0px;">Candidate</p>
+            </button>
+        </ion-col>
+         <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+
+         <!-- /////////////CANDIDATE////////////////////// -->
+<!--         <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='candidate'">
+            <button ion-button icon-only onclick="location.href='/list-job;state=job_applied'">
+                <ion-icon name="briefcase"></ion-icon>
+                <p style="margin:0px;">My Jobs</p>
+            </button>
+        </ion-col> -->
+         <!-- /////////////CANDIDATE////////////////////// -->
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="openchat();">
+                 <ion-icon name="chatbubble-outline"></ion-icon>
+                <p style="margin:0px;">Chats</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/my-account'" class="active">
+                 <ion-icon name="person"></ion-icon>
+                <p style="margin:0px;">My Account</p>
+            </button>
+        </ion-col>
+
+
+<!--         <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="logout(); ">
+                  <ion-icon name="log-out"></ion-icon>
+                <p style="margin:0px;">Log Out</p>
+            </button>
+        </ion-col> -->
+    </ion-row>
+    <div>
+        <hr/>
+    </div>
+</ion-footer-bar>

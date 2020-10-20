@@ -1,0 +1,9 @@
+{
+  "name": "MCI",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "15467145"
+}

@@ -1,0 +1,112 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline" class="mci_icon_back" (click)="goBack();"></ion-icon>
+    <ion-icon name="home" class="mci_icon_back mci_icon_home" onclick="location.href='/homehome'"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+  <div class="title_header_content">
+  	<p>Welcome<br/>
+  	Back</p>
+  	<hr/>
+  </div>
+  <div class="content_form_input" id="container" style="margin-top:70px;">
+    <div class="border_input_mci">
+    	<ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+         <ion-icon name="mail-outline" style="position: absolute;color: #de3535;"></ion-icon>
+        <ion-input #username style="padding-left: 30px !important;" placeholder="Email" [(ngModel)]="username_input" type="text" required></ion-input>
+      </ion-item>
+    	<ion-item class="ion-no-padding" style="margin-bottom: 15px;">
+         <ion-icon name="lock-closed-outline" style="position: absolute;color: #de3535;"></ion-icon>
+         <ion-input style="padding-left: 30px !important;" #password [type]="password_type" placeholder="Password" type="password"  [(ngModel)]="password_input" required></ion-input>
+         <ion-icon [name]="visible ? 'eye-outline' :'eye-off'" [type]="icon_type" (click)="showpassword(); " style="color: #de3535;"></ion-icon>
+    	</ion-item>
+    </div>
+
+    <ion-button   size="large" class="mci_button_standar" (click)="onsubmit(); "><ion-icon name="lock-open-outline"></ion-icon>
+   &#160; Sign In </ion-button>
+
+  </div>
+  <div class="div_share_fixed" (click)="sharewa();">
+          <ion-icon name="share-social-outline" (click)="sharewa();"></ion-icon>
+        </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <!-- <p class="mci_name_page">Sign in</p> -->
+<!--   <div class="icon_next_circle">
+     <ion-icon name="arrow-forward" (click)="onsubmit(); "></ion-icon>
+  </div> -->
+  <!-- <div class="box_footer"> -->
+  	<!-- <a href="/signup">Sign Up</a> -->
+    <!-- <a  href="/forgot-password" style="float:right;">Forgot Password</a> -->
+  <!-- </div> -->
+  <div class="mci-footer-bar">
+      <ion-row align-items-center>
+
+        <ion-col class="ion-no-padding col-3 text-center">
+            <button ion-button icon-only onclick="location.href='/homehome'">
+                <ion-icon name="home"></ion-icon>
+                <p style="margin:0px;">Home</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/list-job'">
+                 <ion-icon name="briefcase"></ion-icon>
+                <p style="margin:0px;">Jobs</p>
+            </button>
+        </ion-col>
+
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/login'" class="active">
+                <ion-icon name="person"></ion-icon>
+                <p style="margin:0px;">Sign In</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/signup'">
+                 <ion-icon name="person-add"></ion-icon>
+                <p style="margin:0px;">Sign Up</p>
+            </button>
+        </ion-col>
+
+        <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='employee'">
+            <button ion-button icon-only onclick="location.href='/list-candidate'">
+                 <ion-icon name="people"></ion-icon>
+                <p style="margin:0px;">Candidate</p>
+            </button>
+        </ion-col>
+         <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+
+         <!-- /////////////CANDIDATE////////////////////// -->
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="openchat();">
+                 <ion-icon name="chatbubble-outline"></ion-icon>
+                <p style="margin:0px;">Chats</p>
+            </button>
+        </ion-col>
+         <!-- /////////////CANDIDATE////////////////////// -->
+
+
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/my-account'">
+                 <ion-icon name="person"></ion-icon>
+                <p style="margin:0px;">My Account</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="logout(); ">
+                  <ion-icon name="log-out"></ion-icon>
+                <p style="margin:0px;">Log Out</p>
+            </button>
+        </ion-col>
+    </ion-row>
+    <div>
+      <hr/>
+    </div>
+  </div>
+</ion-footer>

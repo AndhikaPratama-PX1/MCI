@@ -1,0 +1,47 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar >
+    <div class="mci-toolbar-with-string"> 
+      <ion-icon name="chevron-back-outline" class="mci_icon_back" (click)="goBack();"></ion-icon>
+      <p (click)="goBack();">Back</p>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+	<div class="simple_profile">
+		<p class="name_title">{{name_login}}</p>
+		<p class="desc_small">{{email_login}}</p>
+		<div class="badge_user paid_user" *ngIf="! free_user">
+      <ion-icon name="ribbon"></ion-icon> Paid User 
+    </div>  
+    <div class="badge_user free_user" *ngIf="free_user">
+      <ion-icon name="star"></ion-icon> Free User
+    </div>
+
+		<ion-button  shape="round" size="large" class="simple_button_change_p" href="/my-account">Change Profile</ion-button>
+	</div>
+ 
+<!--   <div class="ion-no-padding attachment_item">
+      <ion-label style="font-family: Manrope-Extrabold;font-size: 18px;">Resume</ion-label>
+      <div>
+        <a style="font-size: 12px;"> <ion-icon name="document" style="    font-size: 16px;"></ion-icon> Resume_candidate.pdf</a>
+      </div>
+    </div> -->
+
+	<div class="ion-no-padding remarks_item">
+	  <ion-label style="font-family: Manrope-Extrabold;font-size: 18px;">Additional Information</ion-label>
+	  <ion-textarea style="border: 2px solid #cccbcb;
+    border-radius: 10px;" [(ngModel)]="remark"></ion-textarea>
+    </div>
+
+    <div class="div_share_fixed" (click)="sharewa();">
+          <ion-icon name="share-social-outline" (click)="sharewa();"></ion-icon>
+        </div>
+
+    
+</ion-content>
+
+
+<ion-footer-bar class="ion-no-border mci-footer-bar-detail-job">
+	<ion-button  shape="round" size="large" class="mci_appy_button mci_submit_job" (click)="onsubmit();"><ion-icon name="paper-plane"></ion-icon>   &#160; Submit </ion-button>
+</ion-footer-bar>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>552601391754-a3uumpskjgkqtq6m3p8qef5e06jqo8gj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.552601391754-a3uumpskjgkqtq6m3p8qef5e06jqo8gj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyA3KbQptTLdI1Nb98E90L0onQ9Bzk4xPWM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>552601391754</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>om.mci.apps.mci</string>
+	<key>PROJECT_ID</key>
+	<string>mciproject</string>
+	<key>STORAGE_BUCKET</key>
+	<string>mciproject.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:552601391754:ios:d969caee18a754be495373</string>
+	<key>DATABASE_URL</key>
+	<string>https://mciproject.firebaseio.com</string>
+</dict>
+</plist>

@@ -1,0 +1,217 @@
+<ion-content class="mci_no_scroll">
+<!--   <div class="barlinemcihometop">
+  </div> -->
+  <div class="div_home_home_top" style="background: white;    height: 80px;">
+    <!-- <p class="title_home_company">MCI Consulting Pte Ltd</p> -->
+    <div class="forclicknotif" (click)="shownotif();" *ngIf="type_login"></div>
+    <ion-icon name="notifications" class="mci_notif" (click)="shownotif();" *ngIf="type_login"></ion-icon>
+    <p class="countnotifunread" (click)="shownotif();" *ngIf="type_login">{{countnotifunread}}</p>
+    <div class="list-notif-mci" *ngIf="show_notif" >
+      <p class="notiftitlelist">Notifications</p>
+      <div *ngFor="let notif of list_notif;" [ngClass]="notif['is_read'] ? 'div_notif_mci notifread' : 'div_notif_mci'" >
+        <p class="title_notif">{{notif.title}}</p>
+        <p class="message_notif">{{notif.message}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="div_home_home_content text-center" style="background: #de3535;">
+    <img src="/assets/img/newlogo.png" style="width: auto;height: 110px;border: 2px solid #efefef;padding: 10px 10px;border-radius: 10px;margin-top: 20px;margin-bottom: 37px !important;    background: white;" id="mci-logo" />
+<!--     <div class="button_login_signup" *ngIf="!type_login">
+      <ion-button onclick="location.href='/login'" shape="round" size="small" class="button_mci" style="font-size: 15px;margin-bottom: -6px;margin-top: -4px;--background: white;color: #de3535;font-family: Manrope-Extrabold;">Sign In &#160;<ion-icon name="log-in"></ion-icon></ion-button>
+      <ion-button onclick="location.href='/signup'" shape="round" size="small" class="button_mci" style="font-size: 15px;margin-bottom: -6px;margin-top: -4px;--background: white;color: #de3535;font-family: Manrope-Extrabold;">Sign Up &#160;<ion-icon name="add-circle"></ion-icon></ion-button>
+    </div> -->
+  </div>
+  <div class="mci_job_list mci_content_static_home" style="border-radius: 15px 15px 0 0;background: white;margin-top: -32px;">
+    <p class="title" style="padding-top: 10px;">Latest Posted Jobs</p>
+    <p class="title_small">Start Today For Better</p>
+    <ion-slides [pager]="true"  class="mci_parent_slide">
+      <ion-slide class="mci_slides" *ngFor="let job of list_job;">
+        <div class="mci_content_job">
+              <ion-row>
+              <ion-col class="col-2 text-center job_list_icon" size="1" size-sm="1" size-md="1" size-lg="1">
+              </ion-col>
+              <ion-col class="col-8" size="9" size-sm="9" size-md="9" size-lg="9" (click)="detail_form(job.id)">
+                <p class="mci_name_job">{{job.position}}</p>
+                <p class="mci_name_company">{{job.company_name}}</p>
+                <div *ngIf="!free_user">
+                  <p class="mci_address mci_mt_7px font_extrabold">Requirements :</p> 
+                  <p class="mci_address" *ngIf="job.qualification">Qualification : {{job.qualification}}</p> 
+                  <p class="mci_address" *ngIf="job.years_of_experience">Years of Experience : {{job.years_of_experience}}</p> 
+                  <p class="mci_address" *ngIf="job.type_of_skill">Type Of Skills : {{job.type_of_skill}}</p> 
+                  <p class="mci_address" *ngIf="job.driving_licence">Driving Licence : {{job.driving_licence}}</p> 
+              </div>
+              <p class="mci_address mci_mt_7px font_extrabold">Locations :</p> 
+              <p class="mci_address">{{job.work_location}}</p> 
+              <p class="mci_address">{{job.nationality}}</p> 
+              <p class="range_salary mci_mt_12px" *ngIf="!free_user">${{job.gross_salary_from}} - ${{job.gross_salary_to}}</p>
+              <div *ngIf="free_user" class="free_user_lock">
+                    <p>You need to activate as Member to apply this Job.</p>
+                  </div>
+              </ion-col>
+              <ion-col class="col-2" size="2" size-sm="2" size-md="2" size-lg="2">
+                <ion-icon class="bookmark" [name]="job.saved ? 'bookmark' :'bookmark-outline'" *ngIf="type_login=='candidate'" (click)="saved_job(job)"></ion-icon>
+                <ion-button  shape="round" size="small" class="icon_delete" *ngIf="type_login=='employee'"> <ion-icon name="trash"></ion-icon></ion-button>
+                <!-- <ion-icon name="bookmark" class="bookmark"></ion-icon> -->
+                <p class="info_date_job">10 Minutes Ago</p>
+              </ion-col>
+            </ion-row>
+            </div>
+          </ion-slide>
+        </ion-slides>
+        <ion-button (click)='gojoblisting()'  shape="round" size="small" class="view_all_job"> <ion-icon name="briefcase"></ion-icon> &#160; View All Jobs</ion-button>
+        <div class="div_search_fixed" onclick="location.href='/find-job'" *ngIf="type_login">
+          <ion-icon name="search"></ion-icon>
+        </div>
+        <div class="div_share_fixed" (click)="sharewa();">
+          <ion-icon name="share-social-outline" (click)="sharewa();"></ion-icon>
+        </div>
+<!--   	<ion-slides [pager]="true"  class="mci_parent_slide">
+	    <ion-slide class="mci_slides">
+	      <img src="/assets/img/sample/s222.jpg" class="img_banner">
+	    </ion-slide>
+	    <ion-slide class="mci_slides">
+	      <img src="/assets/img/sample/s1.png" class="img_banner">
+	    </ion-slide>
+	    <ion-slide class="mci_slides">
+	      <img src="/assets/img/sample/s3.png" class="img_banner">
+	    </ion-slide>
+  	</ion-slides> -->
+  </div>
+<!--   <div  class="div_home_home_content text-center" *ngIf="type_login">
+  		<p style="font-size: 14px;font-family: Manrope-extrabold;color: black; margin-bottom: unset;padding-top: 9px;">THE STORY OF MCI</p>
+  		<p style="font-size:10px;padding: 0 5px;font-family:Manrope;">MCI Investment Holding Pte Ltd is a human-centric and performance committed entity with an enterprising spirit, placing you as our main priority.</p>
+  		<p style="font-size:10px;padding: 0 5px;font-family:Manrope;">We're not just here to help, we're here to make companies interesting.</p>
+  		<img src="/assets/img/imgprototype.png"/>
+  		<p style="font-size: 14px;font-family: Manrope-extrabold;color: black; margin-bottom: unset;">OUR CLIENTS</p>
+  		<img src="/assets/img/clients.png"/>
+  </div> -->
+
+<!--   <div class="mci_job_list mci_content_static_home" style="border-radius: 15px 15px 0 0;background: white;margin-top: -32px;">
+    <p class="title" style="padding-top: 10px;">Latest Posted Jobs</p>
+    <p class="title_small">Start Today For Better</p>
+    <ion-slides [pager]="true"  class="mci_parent_slide">
+      <ion-slide class="mci_slides" *ngFor="let job of list_job;">
+        <div class="mci_content_job">
+              <ion-row>
+              <ion-col class="col-2 text-center job_list_icon" size="1" size-sm="1" size-md="1" size-lg="1">
+              </ion-col>
+              <ion-col class="col-8" size="9" size-sm="9" size-md="9" size-lg="9" (click)="detail_form(job.id)">
+                <p class="mci_name_job">{{job.position}}</p>
+                <p class="mci_name_company">{{job.company_name}}</p>
+                <div *ngIf="!free_user">
+                  <p class="mci_address mci_mt_7px font_extrabold">Requirements :</p> 
+                  <p class="mci_address" *ngIf="job.qualification">Qualification : {{job.qualification}}</p> 
+                  <p class="mci_address" *ngIf="job.years_of_experience">Years of Experience : {{job.years_of_experience}}</p> 
+                  <p class="mci_address" *ngIf="job.type_of_skill">Type Of Skills : {{job.type_of_skill}}</p> 
+                  <p class="mci_address" *ngIf="job.driving_licence">Driving Licence : {{job.driving_licence}}</p> 
+              </div>
+              <p class="mci_address mci_mt_7px font_extrabold">Locations :</p> 
+              <p class="mci_address">{{job.work_location}}</p> 
+              <p class="mci_address">{{job.nationality}}</p> 
+              <p class="range_salary mci_mt_12px" *ngIf="!free_user">${{job.gross_salary_from}} - ${{job.gross_salary_to}}</p>
+              <div *ngIf="free_user" class="free_user_lock">
+                    <p>You need to activate as Member to apply this Job.</p>
+                  </div>
+              </ion-col>
+              <ion-col class="col-2" size="2" size-sm="2" size-md="2" size-lg="2">
+                <ion-icon class="bookmark" [name]="job.saved ? 'bookmark' :'bookmark-outline'" *ngIf="type_login=='candidate'" (click)="saved_job(job)"></ion-icon>
+                <ion-button  shape="round" size="small" class="icon_delete" *ngIf="type_login=='employee'"> <ion-icon name="trash"></ion-icon></ion-button>
+
+                <p class="info_date_job">10 Minutes Ago</p>
+              </ion-col>
+            </ion-row>
+            </div>
+          </ion-slide>
+        </ion-slides>
+        <ion-button (click)='gojoblisting()'  shape="round" size="small" class="view_all_job"> <ion-icon name="briefcase"></ion-icon> &#160; View All Jobs</ion-button>
+        <div class="div_search_fixed" onclick="location.href='/find-job'">
+          <ion-icon name="search"></ion-icon>
+        </div>
+      </div> -->
+</ion-content>
+
+
+<ion-footer-bar class="ion-no-border mci-footer-bar">
+      <hr>
+      <div class="div_copyrightfotter_mci">
+        <p class="copyrightfotter_mci">Powered by MCI Consulting Pte Ltd | EA Licence:13C6730</p>
+        <div class="div_copyrightfotter_mci_icon" *ngIf="!type_login">
+          <ion-icon name="logo-facebook" onclick="location.href='https://www.facebook.com/mciapp'"></ion-icon>
+          <ion-icon name="globe" onclick="location.href='https://www.mci.com.sg/'"></ion-icon>
+          <!-- <ion-icon name="logo-whatsapp" (click)="openchat();"></ion-icon> -->
+        </div>
+      </div>
+    <ion-row align-items-center>
+
+        <ion-col class="ion-no-padding col-3 text-center">
+            <button ion-button icon-only onclick="location.href='/homehome'" class="active">
+                <ion-icon name="home"></ion-icon>
+                <p style="margin:0px;">Home</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/list-job;state=job_listing'">
+                 <ion-icon name="briefcase"></ion-icon>
+                <p style="margin:0px;">Jobs</p>
+            </button>
+        </ion-col>
+
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/login'">
+                <ion-icon name="person"></ion-icon>
+               <p style="margin:0px;">Sign In</p>
+            </button>
+        </ion-col>
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="!  type_login">
+            <button ion-button icon-only onclick="location.href='/signup'">
+                 <ion-icon name="person-add"></ion-icon>
+                <p style="margin:0px;">Sign Up</p>
+            </button>
+        </ion-col>
+
+        <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='employee'">
+            <button ion-button icon-only onclick="location.href='/list-candidate'">
+                 <ion-icon name="people"></ion-icon>
+                <p style="margin:0px;">Candidate</p>
+            </button>
+        </ion-col>
+         <!-- /////////////EMPLOYEEEEEEEEEEEEEEEE////////////////////// -->
+
+         <!-- /////////////CANDIDATE////////////////////// -->
+ <!--        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login=='candidate'">
+            <button ion-button icon-only onclick="location.href='/list-job;state=job_applied'">
+                <ion-icon name="briefcase"></ion-icon>
+                <p style="margin:0px;">My Jobs</p>
+            </button>
+        </ion-col> -->
+         <!-- /////////////CANDIDATE////////////////////// -->
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="openchat();">
+                 <ion-icon name="chatbubble-outline"></ion-icon>
+                <p style="margin:0px;">Chats</p>
+            </button>
+        </ion-col>
+
+        <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only onclick="location.href='/my-account'">
+                 <ion-icon name="person"></ion-icon>
+                <p style="margin:0px;">My Account</p>
+            </button>
+        </ion-col>
+
+
+<!--         <ion-col class="ion-no-padding col-3 text-center" *ngIf="type_login">
+            <button ion-button icon-only (click)="logout(); ">
+                  <ion-icon name="log-out"></ion-icon>
+                <p style="margin:0px;">Log Out</p>
+            </button>
+        </ion-col> -->
+    </ion-row>
+    <div>
+        <hr/>
+    </div>
+</ion-footer-bar>

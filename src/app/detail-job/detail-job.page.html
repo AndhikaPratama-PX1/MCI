@@ -1,0 +1,77 @@
+<ion-header class="ion-no-border" >
+  <ion-toolbar >
+    <div class="mci-toolbar-with-string"> 
+      <ion-icon name="chevron-back-outline" class="mci_icon_back" (click)="goBack();"></ion-icon>
+      <p (click)="goBack();">Back</p>
+      <ion-icon class="bookmark" [name]="saved ? 'bookmark' :'bookmark-outline'" *ngIf="type_login=='candidate'" (click)="saved_job(job_id)"></ion-icon>
+      <ion-button  shape="round" size="small" class="icon_delete" *ngIf="type_login=='employee'"> <ion-icon name="trash"></ion-icon></ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="mci_detail_job mci_no_scroll" >
+  <ion-button  shape="round" size="small" class="icon_edit" *ngIf="type_login=='employee'"> <ion-icon name="create"></ion-icon> Edit</ion-button>
+	<div class="mci_content_job">
+	    <ion-row>
+              <ion-col class="col-8" size="12" size-sm="12" size-md="12" size-lg="12">
+                <p class="mci_name_job">{{position}}</p>
+                <p class="mci_name_company">{{company_name}}</p>
+                <div *ngIf="!free_user">
+                  <p class="mci_address mci_mt_7px font_extrabold">Requirements :</p> 
+                  <p class="mci_address" *ngIf="qualification">Qualification : {{qualification}}</p> 
+                  <p class="mci_address" *ngIf="yoe">Years of Experience : {{yoe}}</p> 
+                  <p class="mci_address" *ngIf="tos">Type Of Skills : {{tos}}</p> 
+                  <p class="mci_address" *ngIf="dl">Driving Licence : {{dl}}</p> 
+              </div>
+              <p class="mci_address mci_mt_7px font_extrabold">Locations :</p> 
+              <p class="mci_address">{{dl}}</p> 
+              <p class="mci_address">{{job_nationality}}</p> 
+<!--               <div *ngIf="!free_user">
+                  <p class="mci_address mci_mt_7px font_extrabold">Descriptions :</p> 
+                  <p class="mci_address">Function : Accounting</p> 
+                  <p class="mci_address">Work Days : 5 Days</p> 
+                  <p class="mci_address">Working Hours : 08:00am-05:00pm</p> 
+              </div> -->
+              
+              <p class="range_salary mci_mt_12px" *ngIf="!free_user">${{salary_from}} - ${{salary_to}}</p>
+              <div *ngIf="free_user" class="free_user_lock">
+                    <p class="mci_mt_12px">You need to activate as Member to apply this Job.</p>
+                  </div>
+              <p class="info_date_job">10 Minutes Ago</p>
+              </ion-col>
+
+            </ion-row>
+	 </div>
+<!-- 	 <p class="mci_label_desc" *ngIf="!free_user">Description</p>
+	 <div class="mci_content_desc" *ngIf="!free_user">
+		 		<p><span class="font_extrabold"> Job Order Number </span> :J-ACC8-2020-0002</p>
+		 		<p><span class="font_extrabold"> Departement </span> : MCI Career Sservices Pte Ltd</p>
+		 		<p><span class="font_extrabold"> Function </span> : ACC8: Accounting / Audit / Tax</p>
+		 		<p><span class="font_extrabold"> Work Days </span> : 5 Days</p>
+		 		<p><span class="font_extrabold"> Working Hours </span> : Monday to Friday 08:00am-05:00pm</p>
+		 		<p><span class="font_extrabold"> Work Location </span> : Central Bartley</p>
+	 </div> -->
+   <div class="div_share_fixed" (click)="sharewa();">
+          <ion-icon name="share-social-outline" (click)="sharewa();"></ion-icon>
+        </div>
+
+</ion-content>
+
+
+<ion-footer-bar class="ion-no-border mci-footer-bar-detail-job" *ngIf="!type_login || type_login=='candidate'">
+	<ion-button  *ngIf="!free_user && type_login" shape="round" style="width: unset;" size="default" class="mci_appy_button" (click)="check_resume(job_id); "><ion-icon name="paper-plane"></ion-icon>&#160;
+ Apply</ion-button>
+
+ <ion-button  *ngIf="!free_user && type_login && !saved" shape="round" size="default" class="mci_appy_button" (click)="saved_job(job_id); " style="width: unset;"><ion-icon name="bookmark"></ion-icon>&#160;
+ Save</ion-button>
+ <ion-button  *ngIf="!free_user && type_login && saved" shape="round" size="default" class="mci_appy_button" (click)="saved_job(job_id); " style="width: unset;"><ion-icon name="bookmark-outline"></ion-icon>&#160;
+ Unsave</ion-button>
+  
+
+
+  <p *ngIf="free_user && type_login">* You need to activate as Member to apply this Job.</p>
+   <p *ngIf="! type_login">* Please Login To Apply Job.</p>
+ <ion-button  *ngIf="free_user && type_login" shape="round" size="large" class="mci_appy_button" href="/make-payment"><ion-icon name="logo-usd"></ion-icon>&#160;
+ Pay Now</ion-button >
+
+</ion-footer-bar>
+

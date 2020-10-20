@@ -1,0 +1,1172 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+@font-face {
+  font-family: Manrope;
+  src: url('/assets/fonts/Manrope/Manrope-Regular.ttf');
+}
+@font-face {
+  font-family: Manrope-ExtraBold;
+  src: url('/assets/fonts/Manrope/Manrope-ExtraBold.ttf');
+}
+
+* {
+  font-family: Manrope;
+}
+
+
+.title_header_content hr {
+    border: 3px solid #e62b2b;
+    border-radius: 5px;
+    width: 46px;
+    float: left;
+    box-sizing: border-box;
+    margin: 0;
+}
+.title_header_content p {
+    margin: 0;
+    font-size: 45px;
+    font-family: Manrope-ExtraBold;
+    color: #000000c9;
+    line-height: 45px;
+}
+.title_header_content {
+    margin-left: 30px;
+}
+.content_form_input {
+    padding: 0 30px;
+    text-align: center;
+}
+.border_input_mci ion-select {
+    font-weight: bolder;
+}
+.mci_account ion-select {
+    font-weight: bolder;
+}
+.border_input_mci ion-select::part(placeholder){
+    font-weight: 100;
+}
+.mci_signup_form {
+    padding: 0 30px;
+    margin-top: 50px;
+    padding-bottom: 50px;
+}
+
+.placeholderwhite::part(placeholder){
+   color:white;
+   opacity:0 !important;
+}
+.mci_signup_form ion-select::part(placeholder){
+    opacity: 0.7;
+        padding-left: 31px;
+}
+.mci_signup_form ion-select::part(text){
+        padding-left: 31px;
+}
+.mci_signup_form ion-select {
+    width: 100%;
+    display: contents;
+    font-size: 12px;
+    padding-bottom: unset !important;
+    color: black;
+}
+.mci_signup_form input {
+    font-size: 12px !important;
+    padding-bottom: unset !important;
+}
+.mci_signup_form ion-textarea {
+    font-size: 12px !important;
+    padding-bottom: unset !important;
+}
+.mci_signup_form ion-item .item-native{
+    padding-left: unset !important;
+}
+.content_form_input_no_absolute {
+    padding: 0 30px;
+}
+.content_form_input input {
+    font-size: 12px !important;
+    padding-bottom: unset !important;
+}
+.content_form_input ion-item .item-native{
+    padding-left: unset !important;
+}
+ion-footer .box_footer {
+    padding: 30px 30px 16px 30px;
+    background: #efefef;
+}
+.mci-custom-modal-alert .alert-head {
+    border-bottom: 1px solid #80808069;
+    margin-bottom: 27px;
+}
+.mci-custom-modal-alert .alert-button-group {
+    border-top: 1px solid #80808069;
+    margin-top: 6px;
+}
+
+.mci-custom-modal-alert .alert-title {
+    color: #de3535;
+    margin:0px !important;
+    font-weight:bolder;
+    text-align: center;
+}
+.mci-custom-modal-alert .alert-message {
+    color:black;
+    font-size: 13px;
+}
+.mci-custom-modal-alert .button_click_oa_modal{
+    border: 1px solid #b7b5b5;
+    background: red;
+    color: white;
+    border-radius: 7px;
+    text-transform: capitalize;
+}
+.mci-custom-modal-alert .button_click_oa_modal.sc-ion-alert-md{
+    padding: 7px 19px !important;
+}
+.mci-custom-modal-alert .button_click_oa_modal.sc-ion-alert-ios {
+    border-radius: unset;
+}
+.mci_icon_back {
+    font-size: 27px;
+    font-weight: bold;
+    color: #bdbcbc;
+    margin-left: 19px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+.mci_icon_home {
+    margin-left: unset !important;
+    float: right;
+    margin-right: 19px;
+}
+.item-native {
+    padding-left: unset !important;
+}
+.mci_name_page {
+    font-weight: bolder;
+    font-size: 18px;
+    color: #e62b2b;
+    margin: unset;
+    border: unset;
+    margin-bottom: 6px;
+    margin-left: 30px;
+    font-family: Manrope-ExtraBold;
+}
+.icon_next_circle {
+    position: absolute;
+    right: 33px;
+    border: 1px solid #e62b2b;
+    border-radius: 57px;
+    padding: 5px 7px;
+    color: white;
+    background: #e62b2b;
+    top: -21px;
+}
+.icon_next_circle ion-icon {
+    font-size: 30px;
+}
+ion-footer .box_footer a {
+    font-size: 14px;
+    font-weight: bolder;
+    color: #000000c9;
+    text-decoration: underline;
+    font-family: Manrope-ExtraBold;
+}
+.mci-toolbar-with-string p {
+    position: absolute;
+    top: -4px;
+    left: 47px;
+    font-family: Manrope;
+    font-size: 25px;
+    color: #bdbcbc;
+}
+.mci_title {
+    text-align: center;
+    font-family: Manrope-Extrabold;
+    text-transform: uppercase;
+    font-size: 25px;
+    color: white;
+}
+.mci-header-bar {
+    background: white;
+    text-align: center;
+    color: white;
+}
+.mci-header-bar ion-row{
+    background: white;  
+}
+.mci-header-bar ion-col{
+    background:white;  
+}
+.mci-header-bar button {
+    width: 100%;
+    background: #de3535;
+    color: white;
+    height: 100%;
+    padding: 9px 2px;
+    outline: none;
+    font-size: 8px;
+}
+.mci-header-bar button ion-icon{
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+.signature_account {
+    border: 2px dashed #cccbcb;
+    border-radius: 0px 0px 10px 10px;
+    height: 87px;
+}
+.mci-footer-bar {
+    background: transparent;
+    text-align: center;
+    color: white;
+}
+.mci-footer-bar ion-row{
+    background: transparent;  
+}
+.mci-footer-bar ion-col{
+    background:transparent;  
+}
+.mci-footer-bar ion-col:first-child button {
+    border-radius:15px 0 0 0;
+}
+.mci-footer-bar ion-col:last-child button {
+    border-radius:0 15px 0 0;
+}
+.mci-footer-bar button{
+    width: 100%;
+    background:  #de3535;
+    color: white;
+    height: 100%;
+    outline: none;
+    padding: 8px 0;
+}
+.mci-footer-bar p {
+    font-size: 8px;
+
+    position: relative;
+   
+}
+.mci-footer-bar button.active {
+    background: #b53333;
+}
+.mci-footer-bar ion-icon{
+    font-size: 18px; 
+}
+.border_input_mci {
+    border: 2px solid #efefef;
+    border-radius: 6px;
+    padding: 7px 13px;
+    padding-bottom: 14px;
+}
+.mci_button_standar {
+    --background: #de3535;
+    width: 100%;
+    margin-top: 38px;
+    margin-bottom: 35px;
+}
+.mci-footer-bar div {
+    background: #de3535;
+    padding: 18px 0 17px 0;
+    border-top: 1px solid #d62b2b;
+}
+.mci-footer-bar div hr {
+    border: 3px solid white;
+    border-radius: 5px;
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+    margin: 0;
+    text-align: center;
+    margin-left: 25% !important;
+    margin-right: 25% !important;
+}
+.div_copyrightfotter_mci {
+    padding: 11px 0 !important;
+    background: white !important;
+    color:black !important;
+    margin-top: -20px;
+}
+.div_copyrightfotter_mci .div_copyrightfotter_mci_icon {
+    position: absolute;
+    color: #de3535;
+    right: 14px;
+    bottom: 67px;
+    background: white;
+    border: unset;
+}
+.div_copyrightfotter_mci .div_copyrightfotter_mci_icon ion-icon {
+    margin-left: 9px;
+    font-size: 19px;
+}
+p.copyrightfotter_mci {
+    font-size: 7px;
+    text-align: left;
+    margin: unset;
+    position: relative;
+    left: 4%;
+    font-weight: bold;
+    font-style: italic;
+}
+.main_content {
+    padding: 0 15px;
+    height: 100%;
+}
+p.mci_p_content_title {
+    font-size: 20px;
+    font-family: Manrope-Extrabold;
+}
+.div_mci_img_job {
+    position: relative;
+    width: 25vw;
+    height: 25vw;
+    overflow: hidden;
+    border-radius: 50%;
+}
+img.mci_img_job {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.mci_content_job {
+    border: 2px solid #efefef;
+    border-radius: 15px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.mci_content_candidate {
+    background: #efefef;
+    border-radius: 15px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+.mci_content_job .bookmark{
+    font-size: 33px;
+    float: right;
+}
+p.mci_name_job {
+    font-family: Manrope-Extrabold;
+    font-size: 14px;
+    margin-bottom: unset;
+}
+p.mci_name_candidate {
+    font-family: Manrope-Extrabold;
+    font-size: 14px;
+    margin-bottom: unset;
+}
+p.mci_email_candidate {
+    margin: unset;
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+p.mci_name_company {
+    margin: unset;
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+p.mci_address {
+    margin: unset;
+    font-size: 13px;
+}
+.mci_mt_12px {
+    margin-top:10px !important;
+}
+.mci_mt_7px {
+    margin-top:7px !important;
+}
+p.range_salary {
+    font-size: 11px;
+    font-family: Manrope-Extrabold;
+    margin: unset;
+}
+p.info_date_job {
+    font-size: 7px;
+    position: absolute;
+    bottom: -11px;
+    width: 63px;
+    right: 2px;
+}
+.mci_label_bold_big {
+    font-family: Manrope-Extrabold;
+    font-size: 25px;
+}
+.mci_label_bold_small {
+    font-size: 11px;
+    font-family: Manrope-Extrabold;
+}
+.mci-toolbar-with-string {
+    margin-top: 16px;
+}
+.mci_find_job {
+    margin-top: 40px;
+}
+.mci_find_job ion-input, .mci_find_job ion-select{
+    border: 2px solid #cccbcb;
+    border-radius: 30px;
+}
+.mci_find_job input{
+    padding: 14px 17px;
+}
+.mci_find_job ion-button {
+    width: 100%;
+    --background: #e62b2b;
+    font-family: Manrope-Extrabold;
+    text-transform: capitalize;
+    margin-top: 25px;
+}
+.notif_not_exist {
+    background: #de3535;
+    color: white;
+    font-family: Manrope_Extrabold;
+    font-size: 19px;
+    padding: 32px 15px;
+    border-radius: 20px;
+    border: 2px solid #cccbcb;
+    width: 100%;
+}
+.middle_container{
+    display: flex!important;
+     align-content: center!important;
+     align-items: center!important;
+         height: 100%;
+
+}
+ionlabel.mci_attach_label {
+    position: absolute;
+    top: -1px;
+    opacity: 0.7;
+    font-size: 12px;
+}
+.font_extrabold {
+    font-family: Manrope-ExtraBold !important;
+}
+.mci-toolbar-with-string ion-icon.bookmark {
+    float: right;
+    font-size: 34px;
+    position: absolute;
+    top: 23px;
+    right: 19px;
+}
+.mci_detail_job .mci_content_job {
+    margin: 0 30px;
+    text-align: center;
+    margin-top: 15px;
+}
+.mci_content_desc {
+    background: #efefef;
+    padding: 23px 15px;
+}
+p.mci_label_desc {
+    margin-top: 30px;
+    text-align: center;
+    background: #efefef;
+    color: #de3535;
+    font-family: Manrope-Extrabold;
+    width: 193px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: unset;
+    padding: 13px 0;
+    border-radius: 6px 6px 0 0px;
+}
+.mci_content_desc p {
+    font-size: 10px;
+    margin: unset;
+    margin-bottom:10px;
+}
+.mci_appy_button{
+    --background: white;
+    color: #de3535;
+    font-family: Manrope-Extrabold;
+    text-transform: capitalize;
+    font-size: 16px;
+    width: 154px;
+}
+.mci-footer-bar-detail-job {
+    text-align: center;
+    background: #de3535;
+    border-radius: 15px 15px 0 0;
+    padding-top: 8px;
+    padding-bottom: 25px;
+}
+.mci_submit_job {
+    width: 202px;
+    font-size: 15px;
+}
+.simple_profile {
+    background: #efefef;
+    border-radius: 15px;
+    padding-bottom: 20px;
+    margin: 0 30px;
+    margin-top: 35px;
+    padding-left: 15px;
+    padding-top: 30px;
+}
+.simple_profile p.name_title {
+    font-size: 16px;
+    font-family: Manrope-Extrabold;
+    margin: unset;
+}
+.simple_profile p.desc_small {
+    margin: unset;
+    font-size: 11px;
+}
+.simple_profile p.desc_info {
+    margin-bottom: unset;
+    font-size: 15px;
+}
+.simple_button_change_p {
+    --background: #de3535;
+    position: absolute;
+    top: 39px;
+    font-size: 10px;
+    right: 41px;
+}
+.remarks_item {
+    padding: 0 30px;
+    margin-top: 30px;
+}
+.attachment_item {
+    padding: 0 30px;
+    margin-top: 30px;
+    padding-bottom: 35px;
+}
+.attachment_item div {
+    margin-top: 10px;
+    border: 2px dashed #cccbcb;
+    border-radius: 10px;
+    display: flex;
+    text-align: center;
+    padding: 8px 0;
+    color: black;
+    align-items: center;
+    justify-content: center;
+}
+.attachment_item div ion-icon{
+    font-size: 50px;
+    position: relative;
+    top: 3px;
+    color: #de3535;
+}
+.notif_succes_apply {
+    text-align: center;
+    background: #efefef;
+    border-radius: 15px;
+    padding-bottom: 20px;
+    margin: 0 30px;
+    margin-top: 35px;
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.notif_succes_apply ion-icon{
+    color: green;
+    font-size: 60px;
+    margin: unset;
+}
+.notif_succes_apply p.p1 {
+    margin: unset;
+    font-family: Manrope-Extrabold;
+    margin-top: 20px;
+}
+.notif_succes_apply .p2{
+    margin-top: unset;
+    font-size: 11px;
+}
+.checkbox_sign {
+    font-size: 8px;
+    margin-top: 10px;
+     opacity: 0.7;
+}
+.checkbox_sign label{
+    margin-top: -22px;
+    position: relative;
+    display: block;
+    padding-left: 21px;
+}
+.signature-canvas p {
+    margin: unset;
+    font-size: 12px;
+    opacity: 0.7;
+}
+.signature-canvas {
+    margin-top: 30px;
+    margin-bottom: 25px;
+}
+.signature-canvas .place_sign{
+    padding: 50px;
+    margin-top: 14px;
+    border: 2px dashed #cccbcb;
+}
+.text-center {
+    text-align:center;
+}
+.div_home_home_banner {
+    background: #de3535;
+    border-radius: 15px 15px 0 0;
+    padding: 7px 7px 30px 7px;
+}
+.mci_parent_slide{
+    background: white;
+    border-radius: 5px;
+}
+.mci_slides {
+    margin-top:auto;
+    margin-bottom:auto;
+}
+.div_home_home_banner  .swiper-pagination.swiper-pagination-bullets {
+    bottom:0px;
+}
+.mci_content_static_home  .swiper-pagination.swiper-pagination-bullets {
+    bottom:2px;
+    position:relative;
+}
+.mci_content_static_home{
+        margin-bottom: 30px;
+        text-align: center;
+}
+.mci_content_static_home .mci_content_job {
+    margin-bottom: unset;
+    width: 90%;
+    padding-bottom: 10px;
+    text-align:left;
+}
+.mci_content_static_home p.mci_address {
+    margin: unset;
+    font-size: 11px;
+    text-align: left;
+}
+.swiper-pagination-bullet {
+    background: white;
+    border: 1px solid red;
+    opacity: unset;
+}
+.swiper-pagination-bullet-active {
+    background: #de3535 !important;
+}
+.div_home_home_content {
+    background: white;
+    margin-top: -35px !important;
+    border-radius: 15px 15px 0 0;
+}
+.selection_job {
+    text-align: center;
+    margin-top: 42px;
+}
+.selection_job div {
+    border: 4px solid #de3535;
+    border-radius: 16px;
+    margin: 12px;
+    padding: 20px 0;
+    box-shadow: 5px 8px #b73939;
+}
+.selection_job p {
+    font-family: Manrope-Extrabold;
+    font-size: 21px;
+    color: #de3535;
+    margin: 0px;
+}
+.selection_job ion-icon {
+    font-size: 45px;
+    color: #de3535;
+}
+.mci_detail_job .div_mci_img_job {
+    margin: auto;
+    margin-top: -39px !important;
+    margin-bottom: -9px;
+}
+.icon_create {
+    margin-bottom: 31px;
+    --background: #c82837;
+}
+.icon_edit{
+    --background: #c82837;
+}
+.icon_search{
+    margin-bottom: 31px;
+    --background: #c82837;
+}
+.icon_delete {
+    --background: #c82837;
+    position: absolute;
+    top: 7px;
+    right: 6px;
+}
+.icon_edit {
+    --background: #c82837;
+    left: 28px;
+    position: relative;
+}
+.mci-toolbar-with-string .icon_delete {
+    top: 23px;
+    right: 19px;
+}
+.badge_user {
+    border: 1px solid #de3535;
+    padding: 3px 9px;
+    border-radius: 20px;
+    font-size: 9px;
+    width: 80px;
+    text-align: center;
+}
+.badge_user.paid_user {
+    background: #17bd17;
+    color: white;
+    border-color: #17bd17;
+}
+.badge_user.free_user {
+    background: gray;
+    color: white;
+    border-color: gray;
+}
+p.title {
+    color: black;
+    font-family: Manrope-Extrabold;
+    text-align: center;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: unset;
+}
+p.title_small {
+    margin-top: unset;
+    font-size: 10px;
+    text-align: center;
+    color: #d2d2d2;
+    margin-bottom: 16px;
+}
+.view_all_job {
+    --background: #de3535;
+    text-align: center;
+}
+.free_user_lock p {
+    font-size: 8px;
+}
+.div_icon_lock {
+    text-align: center;
+    margin-top: -11px;
+    margin-bottom: -11px;
+}
+.div_icon_lock ion-icon {
+    font-size: 36px;
+    color: #de3535;
+}
+.job_list_icon ion-icon.star_mci {
+    position: absolute;
+    top: 15px;
+    color: #de3535;
+    left: 10px;
+    font-size: 34px;
+}
+.job_list_icon ion-icon.key_mci{
+    position: absolute;
+    top: 82px;
+    color: #de3535;
+    left: 10px;
+    font-size: 34px;
+}
+.job_list_icon ion-icon.pin_mci_free{
+    position: absolute;
+    top: 70px;
+    color: #de3535;
+    left: 10px;
+    font-size: 34px;
+}
+.job_list_icon ion-icon.pin_mci {
+        position: absolute;
+    top: 148px;
+    color: #de3535;
+    left: 10px;
+    font-size: 34px;
+}
+.mci_account .parent_form {
+    margin: 0 30px;
+    text-align: center;
+    margin-top: 60px;
+    border: 2px solid #efefef;
+    border-radius: 15px;
+       padding-bottom: 30px;
+    font-size:11px;
+}
+.mci_make_payment .parent_form{
+    margin: 0 30px;
+    text-align: center;
+    margin-top: 60px;
+    border: 2px solid #efefef;
+    border-radius: 15px;
+       padding-bottom: 30px;
+    font-size:11px;
+}
+.mci_account .ionitemcustom {
+    padding: 0 10px !important;
+}
+.mci_make_payment .ionitemcustom {
+    padding: 0 10px !important;
+}
+.mci_account .ionitemcustom div.input{
+    border-bottom: 1px solid red;
+    margin-bottom: 10px;
+}
+.mci_make_payment .ionitemcustom div.input{
+    border-bottom: 1px solid red;
+    margin-bottom: 10px;
+}
+.mci_make_payment .ico_usd{
+    font-size: 56px;
+    color: #de3535;
+    background: white;
+    border: 2px solid #de3535;
+    padding: 19px;
+    border-radius: 54px;
+    margin-top: -46px;
+}
+.mci_account ion-item {
+  --ion-background-color: transparent !important
+}
+.mci_account .ico_person{
+    font-size: 56px;
+    color: #de3535;
+    background: white;
+    border: 2px solid #de3535;
+    padding: 19px;
+    border-radius: 54px;
+    margin-top: -46px;
+}
+.mci_account .badge_user {
+    margin: auto;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+.mci_button_account {
+    margin-top: 15px;
+    margin-bottom: 36px;
+}
+.mci_update_account_button {
+    background: #de3535;
+    color: white;
+    padding: 11px;
+    border-radius: 10px;
+    font-size: 13px;
+}
+.mci_account .attachment_item{
+    padding:unset;
+    margin:unset;
+}
+.mci-custom-modal-success .alert-head {
+    border-bottom: 1px solid #33bb33;
+    margin-bottom: 27px;
+}
+.mci-custom-modal-success .alert-button-group {
+    border-top: 1px solid #33bb33;
+    margin-top: 6px;
+}
+
+.mci-custom-modal-success .alert-title {
+    color: #33bb33;
+    margin:0px !important;
+    font-weight:bolder;
+    text-align: center;
+}
+.mci-custom-modal-success .alert-message {
+    color:black;
+    font-size: 13px;
+}
+.mci-custom-modal-success .button_click_oa_modal{
+    border: 1px solid #b7b5b5;
+    background: #33bb33;
+    color: white;
+    border-radius: 7px;
+    text-transform: capitalize;
+}
+.mci-custom-modal-success .button_click_oa_modal.sc-ion-alert-md{
+    padding: 7px 19px !important;
+}
+.mci-custom-modal-success .button_click_oa_modal.sc-ion-alert-ios {
+    border-radius: unset;
+}
+.mci-footer-bar-detail-job p{
+    font-size: 12px;
+    color: white;
+}
+.simple_profile .badge_user {
+    margin-top: 10px;
+}
+.select_img .paypal_ico:before {
+    background-image: url('/assets/img/paypal.png');
+    background-size: 10px 20px;
+    display: inline-block;
+    width: 10px; 
+    height: 20px;
+    content:"";
+}
+.list_tab_job ion-tab-button {
+    color: white;
+    background: #de3535;
+    border-bottom: 2px solid transparent;
+}
+.list_tab_job button.active {
+    background: #b53333;
+}
+.select_type_user {
+    width: 136px;
+    margin-left: 15px;
+    margin-top: 8px;
+}
+.select_type_user ion-select::part(placeholder){
+    color:white;
+}
+.select_type_user ion-select{
+    font-size: 19px;
+    max-width: 100% !important;
+    font-family: Manrope-ExtraBold;
+    color: #000000c9;
+        padding: unset;
+    padding-bottom: 10px;
+}
+.mci-loading ion-spinner{
+    color:red !important;
+}
+.div_well_notif_oa {
+    background: #e62b2b;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    padding: 13px 14px;
+    border: 2px solid #efefef;
+}
+.button_mci {
+     --background: #de3535;
+    text-align: center;
+}
+.div_search_fixed {
+    position: fixed;
+    right: 0;
+    bottom: 56%;
+    z-index: 99;
+    background: #de3535;
+    color: white;
+    padding: 4px 16px;
+    font-size: 30px;
+    border-radius: 43px 0 0 43px;
+    border: 1px solid #efefef;
+}
+.div_share_fixed {
+    position: fixed;
+    right: 0;
+    bottom: 34%;
+    z-index: 99;
+    background: black;
+    color: white;
+    padding: 4px 16px;
+    font-size: 30px;
+    border-radius: 43px 0 0 43px;
+    border: 1px solid #efefef;
+}
+
+.home_shared_apps {
+    margin-top: -32px !important;
+    background: white;
+    border-radius: 15px 15px 0 0;
+    text-align: center;
+}
+.div_share_fixed:hover, .div_share_fixed:focus{
+    background: #ffffff;
+    color: #de3535;
+    border-color: #de3535;
+}
+.div_search_fixed:hover, .div_search_fixed:focus{
+    background: #ffffff;
+    color: #de3535;
+    border-color: #de3535;
+}
+.upload_img_parent {
+    padding: 0 10px;
+    display: block;
+    margin-top: -13px;
+}
+.div_confirm_assign {
+    text-align: left;
+    padding: 0 17px;
+    height: 43px;
+}
+.div_confirm_assign ion-checkbox{
+    position: absolute;
+    margin-top: 6px;
+}
+.mci_action_sign {
+    background: #de3535;
+    margin: 0 16px;
+    padding: 10px 20px;
+    text-align: right;
+    color: white;
+        border-radius: 10px 10px 0 0;
+}
+.mci_action_sign ion-icon {
+    font-size: 19px;
+    margin: 0 9px;
+}
+
+.div_confirm_assign p{
+    margin-left: 26px;
+    font-family: Manrope-Extrabold;
+    font-style: italic;
+}
+p.title_home_company {
+    font-family: Manrope-Extrabold;
+    color: #de3535;
+    font-size: 20px;
+    margin: unset;
+}
+p.title_home_company sub{
+    font-size: 10px;
+    position: relative;
+    top: 0px;
+}
+p.mci_tooltip {
+    position: absolute;
+    font-size: 7px;
+    z-index: 9;
+    border: 1px solid #efefef;
+    top: -17px;
+    left: 30px;
+    padding: 1px 11px;
+    background: white;
+}
+p.mci_tooltip:before {
+    content: ' ';
+    height: 0;
+    position: absolute;
+    width: 0;
+    top: 21px;
+    left: -1px;
+    border: 4px solid transparent;
+    border-top-color: #efefef;
+}
+.mci_tooltip_div {
+    display: block;
+    position: relative;
+}
+.div_home_home_top {
+    background: #de3535;
+    padding: 15px 10px 48px 10px;
+}
+.div_home_home_top .mci_notif {
+    color: #de3535;
+    position: absolute;
+    right: 20px;
+    top: 19px;
+    font-size: 19px;
+}
+.div_hrcopyrightfotter_mci {
+    border-top: 1px solid #f3eeee !important;
+    margin-bottom: 21px;
+}
+.button_login_signup {
+    margin-top: -22px;
+    padding-bottom: 51px;
+}
+.button_login_signup {
+    margin-top: -18px;
+    padding-bottom: 45px;
+}
+.forclicknotif {
+    position: absolute;
+    right: 0;
+    padding: 29px 45px;
+    top: 20px;
+}
+p.countnotifunread {
+    position: absolute;
+   right: 8px;
+    top: -4px;
+    background: white;
+    padding: 2px 6px;
+    border-radius: 30px;
+    font-size: 10px;
+    border: 1px solid lightgray;
+    font-weight: bolder;
+    color: #de3535;
+}
+.list-notif-mci {
+    position: absolute;
+    right: 0;
+    background: white;
+    border-left: 2px solid gainsboro;
+    border-top: 2px solid gainsboro;
+    border-right: 2px solid gainsboro;
+}
+p.notiftitlelist {
+    text-align: center;
+    font-family: Manrope-Extrabold;
+    margin: unset;
+    background: #de3535;
+    padding-top: 7px;
+    color: white;
+    padding-bottom: 9px;
+    border-bottom: 1px solid #e0d7d7;
+}
+.notifread {
+    background: whitesmoke;
+}
+.div_notif_mci {
+    padding: 0 12px;
+    border-bottom: 1px solid #dedede;
+}
+.div_notif_mci p.title_notif {
+    font-family: Manroope-Extrabold;
+    font-size: 11px;
+    margin: unset;
+    padding-top: 10px;
+}
+.div_notif_mci p.message_notif {
+    font-size: 8px;
+    margin: unset;
+    margin-bottom: 10px;
+}
+.barlinemcihometop {
+    padding: 12px;
+    width: 100%;
+    background: #de3535;
+}
+
+ion-content.mci_no_scroll {
+  // overwrite inline styles
+  background: white;
+  --offset-bottom: auto!important;
+  --overflow: hidden;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+ion-footer {
+    &.footer-md::before {
+        background-image: none;
+    }
+}
